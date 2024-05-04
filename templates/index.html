@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa;
+            background-image: url('https://i.pinimg.com/564x/7d/d3/43/7dd343368ccdca763a13919df8f584d8.jpg');
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            height: 100vh; /* Set height of the body to full viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Add semi-transparent white background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align content */
+        }
+        h1 {
+            color: #007bff;
+        }
+        .form-label {
+            color: #343a40;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-control {
+            margin: 0 auto; /* Center align input */
+            text-align: center; /* Center align text within input */
+            font-size: 14px; /* Adjust font size */
+            width: 200px; /* Adjust width of the search bar */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for Brand Details</h1>
+        <form method="post">
+            {% csrf_token %} 
+            <div class="mb-3 row justify-content-center"> <!-- Added 'row justify-content-center' to center align input -->
+                <label for="name" class="form-label"></label>
+                <input type="text" class="form-control" name="name">
+                <div id="emailHelp" class="form-text">Enter the Brand Name to search for details.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Get Details</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
